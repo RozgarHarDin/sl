@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { 
   RotateCw, 
   FlipHorizontal, 
@@ -36,7 +36,13 @@ export const CanvasStage: React.FC<CanvasStageProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // Update showFaceGuide if preset changes
+  // Store onCanvasRendered in a ref to break the re-render dependency loop
+  const onCanvasRenderedRef = useRef(onCanvasRendered);
+  useEffect(() => {
+    onCanvasRenderedRef.current = onCanvasRendered;
+  }, [onCanvasRendered]);
+
+  // Update showFaceGuide if preset type changes
   useEffect(() => {
     setShowFaceGuide(preset.type === 'photo');
   }, [preset.type]);
@@ -52,6 +58,8 @@ export const CanvasStage: React.FC<CanvasStageProps> = ({
         targetHeight: preset.height_px,
         cropArea,
         overlay,
+        enableSharpening: true,
+        sharpenAmount: 0.22,
       });
 
       // Copy processedCanvas onto visible canvas
@@ -64,13 +72,27 @@ export const CanvasStage: React.FC<CanvasStageProps> = ({
         dCtx.drawImage(processedCanvas, 0, 0);
       }
 
-      if (onCanvasRendered) {
-        onCanvasRendered(processedCanvas);
-      }
+      // Notify parent via ref (breaking circular render loop)
+      onCanvasRenderedRef.current?.(processedCanvas);
     } catch (err) {
       console.error('Failed to render canvas stage:', err);
     }
-  }, [imageElement, cropArea, overlay, preset, onCanvasRendered]);
+  }, [
+    imageElement,
+    cropArea.x,
+    cropArea.y,
+    cropArea.zoom,
+    cropArea.rotation,
+    cropArea.flipH,
+    cropArea.flipV,
+    overlay.enabled,
+    overlay.name,
+    overlay.date,
+    overlay.fontSizeMultiplier,
+    overlay.bandHeightPercent,
+    preset.width_px,
+    preset.height_px,
+  ]);
 
   // Mouse & Touch Pan Drag Handlers
   const handleMouseDown = (e: React.MouseEvent) => {

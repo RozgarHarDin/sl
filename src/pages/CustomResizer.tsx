@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Sliders, CheckCircle2 } from 'lucide-react';
+import React, { useState, useRef, useCallback } from 'react';
+import { Sliders } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 import { DropZone } from '../components/core/DropZone';
 import { CanvasStage } from '../components/core/CanvasStage';
@@ -28,7 +28,7 @@ export const CustomResizer: React.FC<CustomResizerProps> = ({
   const [maxKb, setMaxKb] = useState(50);
   const [targetKb, setTargetKb] = useState(35);
   const [format, setFormat] = useState<'image/jpeg' | 'image/png'>('image/jpeg');
-  const [customName, setCustomName] = useState('Custom Portal Setting');
+  const [customName] = useState('Custom Portal Setting');
 
   // Convert to px
   const getComputedPx = () => {
@@ -135,7 +135,7 @@ export const CustomResizer: React.FC<CustomResizerProps> = ({
     }
   };
 
-  const handleCanvasRendered = async (canvas: HTMLCanvasElement) => {
+  const handleCanvasRendered = useCallback(async (canvas: HTMLCanvasElement) => {
     lastCanvasRef.current = canvas;
     try {
       setIsProcessing(true);
@@ -151,7 +151,7 @@ export const CustomResizer: React.FC<CustomResizerProps> = ({
       console.error('Binary compression failed:', err);
       setIsProcessing(false);
     }
-  };
+  }, [customPreset.min_kb, customPreset.max_kb, customPreset.target_kb, customPreset.format, targetKb]);
 
   const handleSaveToPresets = () => {
     onAddCustomPreset(customPreset);

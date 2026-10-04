@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   ShieldCheck, 
   CheckCircle2, 
   Zap, 
   ArrowRight,
   Sparkles,
-  Layers,
   Award
 } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
@@ -40,7 +39,7 @@ export const Home: React.FC<HomeProps> = ({
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [compressionResult, setCompressionResult] = useState<CompressionResult | null>(null);
   
-  // Dynamic user-selected target KB (defaulting to preset target, e.g. 35 KB)
+  // Dynamic user-selected target KB
   const [customTargetKb, setCustomTargetKb] = useState<number>(selectedPreset.target_kb);
 
   const [cropArea, setCropArea] = useState<CropArea>({
@@ -71,7 +70,7 @@ export const Home: React.FC<HomeProps> = ({
 
   const lastCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Load sample candidate photo by default on first load
+  // Load sample candidate photo on initial mount once
   useEffect(() => {
     if (!imageElement) {
       const sample = generateSampleCandidatePhoto();
@@ -81,14 +80,14 @@ export const Home: React.FC<HomeProps> = ({
     }
   }, []);
 
-  // Update target KB and overlay whenever selected preset changes
+  // Update target KB and overlay whenever preset primitives change
   useEffect(() => {
     setCustomTargetKb(selectedPreset.target_kb);
     setOverlay((prev) => ({
       ...prev,
       enabled: selectedPreset.requires_name_date,
     }));
-  }, [selectedPreset]);
+  }, [selectedPreset.id, selectedPreset.target_kb, selectedPreset.requires_name_date]);
 
   // Handle file drop or selection
   const handleFileSelect = async (fileOrUrl: File | string, fileName?: string) => {
@@ -134,8 +133,8 @@ export const Home: React.FC<HomeProps> = ({
     }
   };
 
-  // Called whenever canvas is rendered in CanvasStage
-  const handleCanvasRendered = async (canvas: HTMLCanvasElement) => {
+  // Stable callback invoked when CanvasStage finishes rendering
+  const handleCanvasRendered = useCallback(async (canvas: HTMLCanvasElement) => {
     lastCanvasRef.current = canvas;
     try {
       setIsProcessing(true);
@@ -151,7 +150,7 @@ export const Home: React.FC<HomeProps> = ({
       console.error('Binary compression failed:', err);
       setIsProcessing(false);
     }
-  };
+  }, [selectedPreset.min_kb, selectedPreset.max_kb, selectedPreset.target_kb, selectedPreset.format, customTargetKb]);
 
   return (
     <div className="space-y-10 pb-16">
@@ -162,7 +161,6 @@ export const Home: React.FC<HomeProps> = ({
 
       {/* Hero Section */}
       <section className="relative pt-6 pb-2 text-center max-w-4xl mx-auto px-4">
-        {/* Badges */}
         <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-4">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-sky-400 border border-blue-500/30">
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -318,7 +316,7 @@ export const Home: React.FC<HomeProps> = ({
         </div>
       </section>
 
-      {/* Trust & Official Compliance Feature Grid */}
+      {/* Trust Feature Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2 className="text-2xl font-black text-white">

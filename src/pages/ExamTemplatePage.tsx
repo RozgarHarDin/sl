@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   CheckCircle2, 
   HelpCircle, 
   ChevronDown, 
   ChevronUp, 
-  BookOpen, 
-  Sparkles
+  BookOpen
 } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 import { DropZone } from '../components/core/DropZone';
@@ -74,7 +73,7 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
       setImageElement(img);
       setCurrentFileName(preset.type === 'signature' ? 'sample_signature.jpg' : 'sample_photo.jpg');
     });
-  }, [preset]);
+  }, [preset.id, preset.type, preset.target_kb]);
 
   const handleFileSelect = async (fileOrUrl: File | string, fileName?: string) => {
     try {
@@ -118,7 +117,7 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
     }
   };
 
-  const handleCanvasRendered = async (canvas: HTMLCanvasElement) => {
+  const handleCanvasRendered = useCallback(async (canvas: HTMLCanvasElement) => {
     lastCanvasRef.current = canvas;
     try {
       setIsProcessing(true);
@@ -134,7 +133,7 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
       console.error('Binary compression failed:', err);
       setIsProcessing(false);
     }
-  };
+  }, [preset.min_kb, preset.max_kb, preset.target_kb, preset.format, customTargetKb]);
 
   const getSEOConfig = () => {
     switch (slug) {
