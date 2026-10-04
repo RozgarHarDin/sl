@@ -1,0 +1,32 @@
+{
+  "id": "https://sl.sarkaripixel.workers.dev/",
+  "name": "SarkariPixel",
+  "short_name": "SarkariPixel",
+  "description": "Free offline photo & signature resizer, DOP date overlay, and exact-KB compressor for SSC, UPSC, NTA NEET/JEE, IBPS & Govt forms.",
+  "start_url": "https://sl.sarkaripixel.workers.dev/",
+  "scope": "https://sl.sarkaripixel.workers.dev/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

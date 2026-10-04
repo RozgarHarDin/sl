@@ -1,0 +1,6 @@
+{
+  "name": "SarkariPixel - Free SSC, UPSC & Govt Exam Photo Resizer (20-50 KB)",
+  "description": "Resize, compress, and add Name & Date (DOP) to photos and signatures for SSC, UPSC, NTA, IBPS government exam portals. 100% private, free, in-browser compression.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
