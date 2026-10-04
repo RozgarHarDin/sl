@@ -36,6 +36,9 @@ export const SEO: React.FC<SEOProps> = ({
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
 
+    const ogSiteName = document.querySelector('meta[property="og:site_name"]');
+    if (ogSiteName) ogSiteName.setAttribute('content', 'SarkariPixel');
+
     // 4. Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
@@ -45,10 +48,17 @@ export const SEO: React.FC<SEOProps> = ({
     }
     linkCanonical.setAttribute('href', canonicalUrl);
 
-    // 5. Schema.org JSON-LD
+    // 5. Schema.org JSON-LD (WebSite + WebApplication)
     const defaultSchema = {
       '@context': 'https://schema.org',
       '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://sl.sarkaripixel.workers.dev/#website',
+          name: 'SarkariPixel',
+          alternateName: ['Sarkari Pixel', 'SarkariPixel App'],
+          url: 'https://sl.sarkaripixel.workers.dev/',
+        },
         {
           '@type': 'WebApplication',
           '@id': 'https://sl.sarkaripixel.workers.dev/#webapp',

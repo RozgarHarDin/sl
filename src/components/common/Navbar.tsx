@@ -8,8 +8,7 @@ import {
   Menu, 
   X,
   FileCheck2,
-  HelpCircle,
-  Sparkles
+  HelpCircle
 } from 'lucide-react';
 import { usePWAInstall } from '../../hooks/usePWAInstall';
 
@@ -94,20 +93,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={install}
                 className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-blue-500/25 transition active:scale-95 cursor-pointer"
-                title="Install SarkariPixel Progressive Web App"
+                title="Install SarkariPixel"
               >
                 <Download className="w-4 h-4 text-sky-200" />
                 <span>Install SarkariPixel</span>
               </button>
             )}
 
-            {!isInstalled && isIOS && (
+            {!isInstalled && !isInstallable && isIOS && (
               <button
                 onClick={() => setShowIOSGuide(true)}
-                className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition"
+                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-blue-500/25 transition active:scale-95 cursor-pointer"
+                title="Install SarkariPixel"
               >
-                <Download className="w-3.5 h-3.5 text-sky-400" />
-                <span>Add to Home</span>
+                <Download className="w-4 h-4 text-sky-200" />
+                <span>Install SarkariPixel</span>
               </button>
             )}
 
@@ -156,10 +156,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
 
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
-            {!isInstalled && isInstallable && (
+            {!isInstalled && (isInstallable || isIOS) && (
               <button
                 onClick={() => {
-                  install();
+                  if (isInstallable) {
+                    install();
+                  } else if (isIOS) {
+                    setShowIOSGuide(true);
+                  }
                   setMobileMenuOpen(false);
                 }}
                 className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-bold"
@@ -178,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="w-full max-w-sm rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-2xl text-white">
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <h3 className="text-base font-bold text-sky-300 flex items-center gap-2">
-                <Download className="w-4 h-4" /> Install SarkariPixel on iOS
+                <Download className="w-4 h-4" /> Install SarkariPixel
               </h3>
               <button
                 onClick={() => setShowIOSGuide(false)}

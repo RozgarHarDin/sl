@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /favicon-48x48.png
+Allow: /favicon-96x96.png
+Allow: /apple-touch-icon.png
+Allow: /icon.svg
+Allow: /icons/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon-48x48.png
+Allow: /favicon-96x96.png
+Allow: /apple-touch-icon.png
+Allow: /icon.svg
+Allow: /icons/
 
 Sitemap: https://sl.sarkaripixel.workers.dev/sitemap.xml
