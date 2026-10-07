@@ -8,7 +8,7 @@ export const About: React.FC = () => {
       <SEO
         title="About SarkariPixel – The Free, Privacy-First Indian Exam Photo Engine"
         description="Learn about our mission to eliminate exam form rejections and protect candidate privacy across India with 100% free in-browser resizing."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/about"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/about"
       />
 
       <div className="text-center space-y-3">

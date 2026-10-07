@@ -14,7 +14,7 @@ export const BatchMode: React.FC<BatchModeProps> = ({
       <SEO
         title="Bulk Batch Photo & Signature Compressor (100% Free JSZip)"
         description="Batch process multiple candidate photos at once. Auto-apply Date of Photo (DOP) overlays, resize to exact exam KB limits, and export organized ZIP files."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/batch"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/batch"
       />
 
       <BatchProcessor

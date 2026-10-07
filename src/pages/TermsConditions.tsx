@@ -7,7 +7,7 @@ export const TermsConditions: React.FC = () => {
       <SEO
         title="Terms & Conditions – SarkariPixel"
         description="Terms and conditions governing the use of SarkariPixel free in-browser photo resizer utility."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/terms-and-conditions"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/terms-and-conditions"
       />
 
       <div className="text-center space-y-2 border-b border-slate-800 pb-6">

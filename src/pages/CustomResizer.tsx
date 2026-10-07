@@ -163,7 +163,7 @@ export const CustomResizer: React.FC<CustomResizerProps> = ({
       <SEO
         title="Custom Photo & Signature Resizer (Set Exact Pixels, CM, and KB Limits) – SarkariPixel"
         description="Configure custom pixel width, height, DPI, and exact kilobyte compression for any portal or application."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/custom"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/custom"
       />
 
       {/* Header */}

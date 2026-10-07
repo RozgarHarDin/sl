@@ -20,7 +20,7 @@ export const Contact: React.FC = () => {
       <SEO
         title="Contact & Support – SarkariPixel"
         description="Get in touch with the SarkariPixel team for feedback, portal dimension updates, or technical suggestions."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/contact"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/contact"
       />
 
       <div className="text-center space-y-2">

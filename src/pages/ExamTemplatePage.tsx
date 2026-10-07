@@ -228,9 +228,9 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': `https://sl.sarkaripixel.workers.dev/${slug}/#webapp`,
+        '@id': `https://sarkaripixel.klyvix.workers.dev/${slug}/#webapp`,
         name: `SarkariPixel - ${preset.name} Resizer`,
-        url: `https://sl.sarkaripixel.workers.dev/${slug}`,
+        url: `https://sarkaripixel.klyvix.workers.dev/${slug}`,
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'All',
         description: seoConfig.desc,
@@ -242,7 +242,7 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
       },
       {
         '@type': 'FAQPage',
-        '@id': `https://sl.sarkaripixel.workers.dev/${slug}/#faq`,
+        '@id': `https://sarkaripixel.klyvix.workers.dev/${slug}/#faq`,
         mainEntity: seoConfig.faqs.map((f) => ({
           '@type': 'Question',
           name: f.q,
@@ -260,7 +260,7 @@ export const ExamTemplatePage: React.FC<ExamTemplatePageProps> = ({
       <SEO
         title={`SarkariPixel – ${preset.name} Resizer (${preset.min_kb}–${preset.max_kb} KB)`}
         description={seoConfig.desc}
-        canonicalUrl={`https://sl.sarkaripixel.workers.dev/${slug}`}
+        canonicalUrl={`https://sarkaripixel.klyvix.workers.dev/${slug}`}
         schema={schemaData}
       />
 

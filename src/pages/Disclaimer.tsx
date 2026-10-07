@@ -8,7 +8,7 @@ export const Disclaimer: React.FC = () => {
       <SEO
         title="Government Non-Affiliation Disclaimer – SarkariPixel"
         description="Official statement of non-affiliation with the Government of India, SSC, UPSC, NTA, IBPS, or State PSC entities."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/disclaimer"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/disclaimer"
       />
 
       <div className="text-center space-y-2 border-b border-slate-800 pb-6">
@@ -25,7 +25,7 @@ export const Disclaimer: React.FC = () => {
           GOVERNMENT NON-AFFILIATION DECLARATION
         </h3>
         <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-          <strong>SarkariPixel (sl.sarkaripixel.workers.dev)</strong> is an independent software tool and private technical utility. It is <strong>NOT affiliated, associated, authorized, endorsed by, or in any way officially connected</strong> with:
+          <strong>SarkariPixel (sarkaripixel.klyvix.workers.dev)</strong> is an independent software tool and private technical utility. It is <strong>NOT affiliated, associated, authorized, endorsed by, or in any way officially connected</strong> with:
         </p>
         <ul className="list-disc list-inside space-y-1 text-xs text-slate-300 pl-2">
           <li>Staff Selection Commission (SSC)</li>

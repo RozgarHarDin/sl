@@ -10,7 +10,7 @@ interface SEOProps {
 export const SEO: React.FC<SEOProps> = ({
   title = 'SarkariPixel - Free SSC, UPSC & Govt Exam Photo Resizer (20-50 KB)',
   description = 'Resize, compress, and add Name & Date (DOP) to photos and signatures for SSC, UPSC, NTA, IBPS government exam portals. 100% private, free, in-browser compression.',
-  canonicalUrl = 'https://sl.sarkaripixel.workers.dev/',
+  canonicalUrl = 'https://sarkaripixel.klyvix.workers.dev/',
   schema,
 }) => {
   useEffect(() => {
@@ -54,16 +54,16 @@ export const SEO: React.FC<SEOProps> = ({
       '@graph': [
         {
           '@type': 'WebSite',
-          '@id': 'https://sl.sarkaripixel.workers.dev/#website',
+          '@id': 'https://sarkaripixel.klyvix.workers.dev/#website',
           name: 'SarkariPixel',
           alternateName: ['Sarkari Pixel', 'SarkariPixel App'],
-          url: 'https://sl.sarkaripixel.workers.dev/',
+          url: 'https://sarkaripixel.klyvix.workers.dev/',
         },
         {
           '@type': 'WebApplication',
-          '@id': 'https://sl.sarkaripixel.workers.dev/#webapp',
+          '@id': 'https://sarkaripixel.klyvix.workers.dev/#webapp',
           name: 'SarkariPixel',
-          url: 'https://sl.sarkaripixel.workers.dev/',
+          url: 'https://sarkaripixel.klyvix.workers.dev/',
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'All',
           browserRequirements: 'Requires HTML5 Canvas and JavaScript',

@@ -8,7 +8,7 @@ export const PrivacyPolicy: React.FC = () => {
       <SEO
         title="Privacy Policy (Zero Data Egress Declaration) – SarkariPixel"
         description="Our explicit Zero Server Data Transmission policy guarantees your identity documents never leave your browser."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/privacy-policy"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/privacy-policy"
       />
 
       <div className="text-center space-y-2 border-b border-slate-800 pb-6">

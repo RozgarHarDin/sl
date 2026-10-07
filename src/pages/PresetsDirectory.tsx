@@ -41,7 +41,7 @@ export const PresetsDirectory: React.FC<PresetsDirectoryProps> = ({
       <SEO
         title="Directory of 50+ Indian Govt Exam Photo & Signature Specifications (2026) – SarkariPixel"
         description="Comprehensive index of official photo dimensions, DPI, and KB limits for SSC, UPSC, NTA NEET/JEE, IBPS, Railways RRB, State PSCs, and Passport Seva."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/presets"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/presets"
       />
 
       {/* Header */}

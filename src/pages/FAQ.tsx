@@ -28,7 +28,7 @@ export const FAQ: React.FC = () => {
     },
     {
       q: 'Can I install SarkariPixel on my Android or iPhone?',
-      a: 'Yes! SarkariPixel is a Progressive Web App (PWA). On Android Chrome or desktop, click the "Install SarkariPixel" button in the header. On iOS Safari, tap "Share" > "Add to Home Screen".',
+      a: 'Yes! SarkariPixel is a Progressive Web App (PWA). On Android Chrome or desktop, click the "Install app" button in the header. On iOS Safari, tap "Share" > "Add to Home Screen".',
     },
   ];
 
@@ -37,7 +37,7 @@ export const FAQ: React.FC = () => {
       <SEO
         title="Frequently Asked Questions (FAQ) & Exam Photo Rules – SarkariPixel"
         description="Comprehensive guide on SSC, UPSC, NEET, and IBPS photo dimensions, Date of Photo (DOP) stamping, and portal rejection troubleshooting."
-        canonicalUrl="https://sl.sarkaripixel.workers.dev/faq"
+        canonicalUrl="https://sarkaripixel.klyvix.workers.dev/faq"
       />
 
       <div className="text-center space-y-3">
